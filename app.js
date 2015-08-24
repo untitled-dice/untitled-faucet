@@ -23,15 +23,24 @@ var config = {
 config.mp_api_uri = 'https://api.moneypot.com';
 config.mp_browser_uri = 'https://www.moneypot.com';
 
+if (isRunningLocally()) {
+  config.redirect_uri = 'http://localhost:5000'
+}
+
 var worldStore = {
   accessToken: undefined,
-  claimedAt: undefined,
+  claimedAt: localStorage.getItem('claimed_at') && new Date(localStorage.getItem('claimed_at')),
   user: undefined
 };
 
 ////////////////////////////////////////////////////////////
 
 var helpers = {};
+
+// :: Bool
+function isRunningLocally() {
+  return /^localhost/.test(window.location.host);
+}
 
 helpers.getPath = function(urlString) {
   var a = document.createElement('a');
@@ -193,7 +202,7 @@ function render() {
     } else if (worldStore.faucetResult == 'FAUCET_ALREADY_CLAIMED') {
       html += '<span class="label label-danger">Already claimed</span> ';
     } else {
-      alert('Unhandled worldStore.faucetResult: ' + worldStore.faucetResult);
+      // display no label prefix
     }
     html += 'You can claim again <abbr class="timeago" title="'+ canClaimAt.toISOString() +'">'+canClaimAt+'</abbr>'
     $('#recaptcha-target').html(html);
@@ -219,6 +228,7 @@ function onRecaptchaSubmit(response) {
       console.log('Successful claim:', data);
       worldStore.faucetResult = 'FAUCET_SUCCESS';
       worldStore.claimedAt = new Date();
+      localStorage.setItem('claimed_at', (new Date()).toISOString());
       render();
     },
     error: function(xhr, textStatus, errorThrown) {
