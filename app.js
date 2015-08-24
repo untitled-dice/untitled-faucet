@@ -175,6 +175,7 @@ function render() {
 
   if (worldStore.user) {
     var html = 'Logged in as <code>' + worldStore.user.uname+ '</code>';
+    html += '<button type="button" onclick="onWithdrawClick()" class="btn btn-default btn-xs btn-logout">Withdraw</button>';
     html += '<button type="button" onclick="onLogout()" class="btn btn-default btn-xs btn-logout">Logout</button>';
     $('#user-info').html(html);
   } else {
@@ -246,6 +247,14 @@ function onRecaptchaSubmit(response) {
 function onLogout() {
   localStorage.clear();
   location.reload();
+}
+
+function onWithdrawClick() {
+  var windowUrl = 'https://www.moneypot.com/dialog/withdraw?app_id=' + config.app_id;
+  var windowName = 'manage-auth';
+  var windowOpts = 'width=420,height=350,left=100,top=100';
+  var windowRef = window.open(windowUrl, windowName, windowOpts);
+  windowRef.focus();
 }
 
 setInterval(function() {
