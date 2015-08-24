@@ -9,6 +9,10 @@
   color: #777;
 }
 
+.controls {
+  margin-bottom: 5px;
+}
+
 body {
   padding-top: 20px;
 }
