@@ -13,7 +13,7 @@ var config = {
   // Recaptcha SecretKey there. The SiteKey goes here.
   recaptcha_sitekey: '6LfI_QUTAAAAACrjjuzmLw0Cjx9uABxb8uguLbph',
   // Set this to the URL where you're hosting this script.
-  redirect_uri: 'http://localhost:5000'
+  redirect_uri: 'https://untitled-dice.github.io/untitled-faucet'
 };
 
 ////////////////////////////////////////////////////////////
