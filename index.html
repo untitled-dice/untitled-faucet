@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled Faucet</title>
+  <link rel="stylesheet" href="/vendor/bootstrap-3.3.5/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/custom.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <h1 class="branding">
+      Untitled Faucet
+      <span class="powered-by">
+        Powered by <a href="https://www.moneypot.com">MoneyPot</a>
+      </span>
+    </h1>
+
+    <div class="row">
+      <!-- (Leaderboard ad) Visible at tablet-width and up -->
+      <div class="col-xs-12 a hidden-xs">
+        <img src="http://placehold.it/728x90">
+      </div>
+      <!-- (Half-banner ad) Visible only at smartphone width -->
+      <div class="col-xs-12 a visible-xs-block">
+        <img src="http://placehold.it/234x60">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 a hidden-xs hidden-sm">
+        <img src="http://placehold.it/120x240">
+      </div>
+      <div class="col-md-4 col-sm-12 col-xs-12 recaptcha-container">
+        <div id="user-info"></div>
+        <div id="recaptcha-target"></div>
+      </div>
+      <div class="col-md-4 a hidden-xs hidden-sm">
+        <img src="http://placehold.it/120x240">
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- (Leaderboard ad, 728x90) Visible at tablet-width and up -->
+      <div class="col-xs-12 a hidden-xs">
+        <img src="http://placehold.it/728x90">
+      </div>
+      <!-- (Half-banner ad, 234x60) Visible only at smartphone width -->
+      <div class="col-xs-12 a visible-xs-block">
+        <img src="http://placehold.it/234x60">
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/vendor/js/jquery-1.11.3.js"></script>
+  <script src="/vendor/js/jquery.timeago.js"></script>
+  <script>
+    jQuery.timeago.settings.allowFuture = true;
+    jQuery.timeago.settings.allowPast = false;
+  </script>
+  <script src="/vendor/js/lodash.js"></script>
+  <script src="//www.google.com/recaptcha/api.js?render=explicit&onload=onRecaptchaLoad" async defer></script>
+  <script src="app.js"></script>
+</body>
+</html>
