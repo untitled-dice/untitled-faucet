@@ -42,6 +42,10 @@ function isRunningLocally() {
   return /^localhost/.test(window.location.host);
 }
 
+helpers.commafy = function(n) {
+    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 helpers.getPath = function(urlString) {
   var a = document.createElement('a');
   a.href = urlString;
@@ -217,7 +221,7 @@ function render() {
     html += '<div class="controls"><button type="button" onclick="onWithdrawClick()" class="btn btn-default btn-xs btn-logout">Withdraw</button>';
     html += '<button type="button" onclick="onLogout()" class="btn btn-default btn-xs btn-logout">Logout</button>';
     html += '</div>';
-    html += 'Logged in as <code>' + worldStore.user.uname+ '</code> with <code>' + helpers.round10(worldStore.user.balance/100, -2) + '</code> bits' ;
+    html += 'Logged in as <code>' + worldStore.user.uname+ '</code> with <code>' + helpers.commafy(helpers.round10(worldStore.user.balance/100, -2)) + '</code> bits' ;
     $('#user-info').html(html);
   } else {
     $('#user-info').empty();
