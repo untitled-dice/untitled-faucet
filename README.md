@@ -4,6 +4,9 @@
 An open-source advert-ready responsive faucet script that uses
 [MoneyPot.com](https://www.moneypot.com)'s global faucet to pay users.
 
+- **Live Demo:** http://untitled-dice.github.io/untitled-faucet
+- **BitcoinTalk.org Thread:** Coming soon. Check there for the changelog.
+
 ## Features
 
 - **Advert-ready:** Comes with advetisement placeholders. Just swap them out
